@@ -1,3 +1,6 @@
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
 #include<fstream>
 #include<vector>
 #include<iostream>
@@ -10,85 +13,75 @@ typedef struct
 	char diachi[50];
 	bool gioitinh;
 } Contact ;
+char *fileName="danhba.dat";
 vector<Contact> db;
-fstream f("input.dat");
-
-//them moi 1 Contact vao db
-void themmoi(Contact c)
-{
-	db push_back(c);
-//	char st[]='dsda';
-//	strcpy(c.ten,st);
-//	c.gioitinh=0;
-//	cout<<"\n nhap ten:";
-//	cin>>c.ten;
-//	cout<<"\n nhap sdt:";
-//	cin>>c.sdt;
-//	cout<<"\n nhap email:";
-//	cin>>c.email;
-//	cout<<"\n nhap dia chi:";
-//	cin>>c.diachi;
-//	cout<<"\n nhap gioi tinh:";
-//	
-//	
-}
-void ghidb()
-{
-	for(int i=0;i<db.size(),i++)
-		f-->(&db[i],sizeof(db));
-}
-void xuat(Contact c)
-{
-	cout<<c;
-}
-void lietke()
-{
-	for(int i=0;i<sizeof())
-}
-
+void docDBTuFile();
+void ghiBDVaoFile();
+void themMoi(Contact c);
+void inContact(Contact c);
+void inDanhBa();
 int main()
 {
-//	char buff[255];
-//	FILE *fp;
-//	fp=fopen("vidu.txt","w");
-//	fputs("du lieu",fp);
-//	fclose(fp);
-//	
-//	fp=fopen("vidu.txt","r");
-//	fgets(buff,255,(FILE*)fp);
-//	cout<<"\n thong tin trong file%s"<<buff;
+	docDBTuFile();
+	inDanhBa();
+	Contact c1;
+	strcpy(c1.sdt, "456");
+	strcpy(c1.ten,"an");
+	Contact c2;
+	strcpy(c2.sdt,"134");
+	strcpy(c2.ten,"anh");
+	themMoi(c1);
+	themMoi(c2);
+	cout<<"Danh ba:\n";
+	inDanhBa();
 
-
-	int luachon;
-	while(1)
+}
+void docDBTuFile()
+{
+	db.clear();
+	FILE *f;
+	f=fopen(fileName,"rb");
+	if(f!=NULL)
 	{
-		system("cls");//xoa man hinh//
-		cout<<"\n\n\t\t===================== Menu =====================";
-		cout<<"\n\t\t 1.Them danh ba";
-		cout<<"\n\t\t 2.Liet ke danh ba";
-		cout<<"\n\t\t 3.Chinh sua danh ba";
-		cout<<"\n\t\t 4.Xoa danh ba";
-		cout<<"\n\t\t 5.Tim kiem theo ten";
-		cout<<"\n\t\t 0. Ket thuc";
-		cout<<"\n\n\t\t=====================  End  =====================";
-		cout<<"\n\t nhap lua chon:";
-		cin>> luachon;
-		if(luachon != 0 && luachon != 1 && luachon != 2 && luachon != 3 && luachon != 4 && luachon != 5)
+		while(!feof(f))
 		{
-			cout<<"\n lua chon khong phu hop!";
-			system("pause");
+			Contact c;
+			fread(&c, sizeof(Contact),1,f);
+			db.push_back(c);
 		}
-//		else
-//			if(luachon==1)
-//		{
-//			cout<<
-//			system("pause");
-//		}
-
-	else
-	{
-		break;
+		fclose(f);
+		db.pop_back();
 	}
-
+}
+void ghiDBVaoFile()
+{
+	int size = db.size();
+	FILE*f;
+	f=fopen(fileName,"wb");
+	Contact c;
+	for(int i = 0; i < size; i++ )
+	{
+		c=db[i];
+		fwrite(&c,sizeof(Contact),1,f);
+	}
+	fclose(f);
+}
+void themMoi(Contact c )
+{
+	db.push_back(c);
+	ghiDBVaoFile();
+}
+void inContact(Contact c)
+{
+	cout<<"so dt:"<<c.sdt<<"\n";
+	cout<<"ten:"<<c.ten<<"\n";
+	cout<<"-----------------------\n";
+}
+void inDanhBa()
+{
+	int size = db.size();
+	for(int i = 0; i < size;i++)
+	{
+		inContact(db[i]);
 	}
 }
