@@ -67,8 +67,13 @@ ngaythang tongngaythang(ngaythang n,int x)
 		else
 			return ngaytustt(kq-365,nam+1);
 }
+void inngay(ngaythang n)
+{
+	cout<<n.ngay<<"-"<<n.thang<<"-"<<n.nam<<endl;
+}
 int main()
 {
+	int a;
 	char t[4];
  	ngaythang x;
  	string st;
@@ -92,5 +97,8 @@ int main()
  	 else
  	 	cout<<"\n khong phai nam nhuan";
  	cout<<"\n so thu tu:"<<timstt(x);
- 	
+ 	cout<<"\n nhap so nguyen a:";
+	cin>>a;
+ 	cout<<"\n cong :";
+	inngay(tongngaythang(x,a));
  }
