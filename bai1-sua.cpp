@@ -88,8 +88,14 @@ void xoa(char xoa[])
 }
 void capnhat(Contact c)
 {
-	themmoi()
-	lietke()
+	themmoi();
+	lietke();
+	
+	FILE*f=fopen("danhba.dat","wb");
+	Contact c;
+	for(int i=0;i<db.size();i++)
+		fwrite(&db[i],sizeof(db),1,f);
+		fclose(f);
 	//ghi file
 }
 int main()
