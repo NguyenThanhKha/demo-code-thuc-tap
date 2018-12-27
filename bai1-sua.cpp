@@ -55,15 +55,42 @@ void inContact()
 		cout<<"ten:"<<db[i].ten;
 	}
 }
+void lietke()
+{
+	
+}
 // them moi 1 Contact
 void themmoi(Contact c )
 {
 	db.push_back(c);
 	ghifile();
 }
-void chinhsua()
+void chinhsuasdt(char sdt[])
 {
+	for(int i=0;i<db.size();i++)
+		if(strcmp(db[i].sdt,sdt)==0)
+		{
+			strcpy(db[i].ten,"an");
+			for(int i=0;i<db.size();i++)
+			{
+				cout<<"ten:"<<db[i].ten;
+			}
+		}
 	
+}
+void xoa(char xoa[])
+{
+	for(int i=0;i<db.size();i++)
+	{
+		if(strcmp(db[i].ten,xoa)==0)
+			db.erase(db.begin());
+	}
+}
+void capnhat(Contact c)
+{
+	themmoi()
+	lietke()
+	//ghi file
 }
 int main()
 {
