@@ -1,16 +1,16 @@
 3
-cau1
-A
+cau1.V?t Donal có máy chân?
+A.3
+B.2
+C.4
 B
+cau2.Chu?t mickey có máy chân?
+A.4
+B.6
+C.2
 C
-B
-cau2
-A
-B
-C
-C
-cau3
-A
-B
-C
+cau3.Mèo máy kuro có máy chân ?
+A.2
+B.4
+C.6
 A
