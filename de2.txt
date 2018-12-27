@@ -1,16 +1,16 @@
 3
-cau1
-A
-B
+cau1.Nguoi co bao nhiu mat?
+A.2
+B.4
+C.6
 C
-C
-cau2
+cau2.Con ngua co may chan?
+A.4
+B.2
+C.6
 A
-B
-C
-A
-cau3
-A
-B
-C
+cau3.Con bo sua co may chan?
+A.2
+B.4
+C.6
 B
