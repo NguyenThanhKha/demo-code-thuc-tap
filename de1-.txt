@@ -1,0 +1,16 @@
+3
+cau1.Vit Donal co may chan?
+A.3
+B.2
+C.4
+B
+cau2.Chuot mickey co may chan?
+A.4
+B.6
+C.2
+C
+cau3.Meo may kuro co may chan ?
+A.2
+B.4
+C.6
+A
