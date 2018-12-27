@@ -13,18 +13,18 @@ typedef struct
 	char diachi[50];
 	bool gioitinh;
 } Contact ;
-char *fileName = "danhba.dat";
+//char *fileName = "danhba.dat";
 vector<Contact> db;
 void docDBTuFile();
 void ghiBDVaoFile();
 void themMoi(Contact c);
 void inContact(Contact c);
-void inDanhBa();
+//void inDanhBa();
 void docDBTuFile()
 {
 	db.clear();
 	FILE *f;
-	f=fopen(fileName,"rb");
+	f=fopen("danhba.dat","rb");
 	if(f!=NULL)
 	{
 		while(!feof(f))
@@ -41,7 +41,7 @@ void ghiDBVaoFile()
 {
 	int size = db.size();
 	FILE*f;
-	f=fopen(fileName,"wb");
+	f=fopen("danhba.dat","wb");
 	Contact c;
 	for(int i = 0; i < size; i++ )
 	{
@@ -55,68 +55,75 @@ void themMoi(Contact c )
 	db.push_back(c);
 	ghiDBVaoFile();
 }
-void inContact(Contact c)
+void inContact()
 {
-	cout<<"so dt:"<<c.sdt<<"\n";
-	cout<<"ten:"<<c.ten<<"\n";
+	for(int i=0;i<db.size();i++)
+	{
+	cout<<"so dt:"<<db[i].sdt<<"\n";
+	cout<<"ten:"<<db[i].ten<<"\n";
 	cout<<"-----------------------\n";
-}
-void inDanhBa()
-{
-	int size = db.size();
-	for(int i = 0; i < size;i++)
-	{
-		inContact(db[i]);
 	}
 }
-void menu()
-{
-		int luachon;
-	while(1)
-	{
-		system("cls");//xoa man hinh//
-		cout<<"\n\n\t\t===================== Menu =====================";
-		cout<<"\n\t\t 1.Them danh ba";
-		cout<<"\n\t\t 2.Liet ke danh ba";
-		cout<<"\n\t\t 3.Chinh sua danh ba";
-		cout<<"\n\t\t 4.Xoa danh ba";
-		cout<<"\n\t\t 5.Tim kiem theo ten";
-		cout<<"\n\t\t 0. Ket thuc";
-		cout<<"\n\n\t\t=====================  End  =====================";
-		cout<<"\n\t nhap lua chon:";
-		cin>> luachon;
-		if(luachon != 0 && luachon != 1 && luachon != 2 && luachon != 3 && luachon != 4 && luachon != 5)
-		{
-			cout<<"\n lua chon khong phu hop!";
-			system("pause");
-		}
-		else
-			if(luachon==1)
-		
-		{
-			cout<<"\n"<<themMoi<<endl;
-			system("pause");
-		}
-			
-
-	}
-}
+//void inDanhBa()
+//{
+////	int size = db.size();
+//	for(int i = 0; i <db. size;i++)
+//	{
+//		inContact(db[i]);
+//	}
+//}
+//void menu(Contact c)
+//{
+//		int luachon;
+//	while(1)
+//	{
+//		system("cls");//xoa man hinh//
+//		cout<<"\n\n\t\t===================== Menu =====================";
+//		cout<<"\n\t\t 1.Them danh ba";
+//		cout<<"\n\t\t 2.Liet ke danh ba";
+//		cout<<"\n\t\t 3.Chinh sua danh ba";
+//		cout<<"\n\t\t 4.Xoa danh ba";
+//		cout<<"\n\t\t 5.Tim kiem theo ten";
+//		cout<<"\n\t\t 0. Ket thuc";
+//		cout<<"\n\n\t\t=====================  End  =====================";
+//		cout<<"\n\t nhap lua chon:";
+//		cin>> luachon;
+//		if(luachon != 0 && luachon != 1 && luachon != 2 && luachon != 3 && luachon != 4 && luachon != 5)
+//		{
+//			cout<<"\n lua chon khong phu hop!";
+//			system("pause");
+//		}
+//		else
+//			if(luachon==1)
+//		
+//		{
+//			cout<<"\n"<<endl;
+//			themMoi(c);
+//			system("pause");
+//		}
+//			
+//		{
+//			break;
+//		}
+//	}
+//}
 
 
 int main()
 {
 	docDBTuFile();
-	inDanhBa();
+//	inDanhBa();
 	Contact c1;
 	strcpy(c1.sdt, "456");
 	strcpy(c1.ten,"an");
-	Contact c2;
-	strcpy(c2.sdt,"134");
-	strcpy(c2.ten,"anh");
 	themMoi(c1);
-	themMoi(c2);
-	cout<<"Danh ba:\n";
-	inDanhBa();
-	menu();
+	inContact();
+//	Contact c2;
+//	strcpy(c2.sdt,"134");
+//	strcpy(c2.ten,"anh");
+//	themMoi(c2);
+//	cout<<"Danh ba:\n";
+//	inDanhBa();
+////	menu(c1);
 
 }
