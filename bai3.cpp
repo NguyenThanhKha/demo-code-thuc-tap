@@ -105,12 +105,38 @@ void xuat(cauhoidapan ds,int &diem)
 		diem+=2;	
 }
 // nguoi choi
-void xuatngchoi()
+// tham khao trong nhom
+void xuatdiem()
 {
-	for(int i=0;i<nc.size();i++)
+	ifstream g("Diem.txt");
+	g.open("Diem.txt",ios::out | ios::app);
+	for(int i =0 ;i<nc.size();i++)
 	{
-		cout<<nc[i].ten<<nc[i].diem;
+		g << nc[i].ten << " diem dat duoc :" <<nc[i].diem<<endl ;
+		cout<<nc[i].ten<<" : "<<nc[i].diem;
 	}
+	g.close();
+}
+void InDS()
+{
+	int in;
+	string s;
+	cout<<"\nnhap 1 neu muon in danh sach tat ca nguoi choi :";
+	cin>>in;
+	g.open("Diem.txt",ios::in);
+	if(in == 1){
+		getline(g,s);
+	{
+		do
+			{
+				cout<<s<<endl;
+				getline(g,s);
+			}
+		while(s.compare("") != 0);
+	}
+	}
+	else
+		cout<<"ban la nguoi choi dau tien "<<"\nHen Gap Lai !!";
 }
 //void dsngchoi()
 //{
