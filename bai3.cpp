@@ -13,14 +13,22 @@ struct cauhoidapan{
 	string DA;
 	
 };
-//khai bao vector
 vector<cauhoidapan> ds;
+//cau truc nguoi choi
+struct nguoichoi{
+	string ten;
+	int diem;
+};
+vector<nguoichoi> nc;
+//khai bao vector
+
 //khai bao ham 
 void chonde();
 bool kiemtra(string A,string B);
 void xuat(cauhoidapan ds);
 void docde();
 void xuat(cauhoidapan ds);
+void xuatngchoi();
 //doc file chon de
 void chonde()
 {
@@ -94,22 +102,41 @@ void xuat(cauhoidapan ds,int &diem)
 	cout<<"nhap dap an:";
 	cin>>dapan;
 	if(kiemtra(ds.DA,dapan))
-		diem+=2;
-	
-	
-	
+		diem+=2;	
 }
+// nguoi choi
+void xuatngchoi()
+{
+	for(int i=0;i<nc.size();i++)
+	{
+		cout<<nc[i].ten<<nc[i].diem;
+	}
+}
+//void dsngchoi()
+//{
+//	nguoichoi n1;
+//	for(int i=0;i<nc.size();i++)
+//		xuatngchoi();
+//}
 
 void docde()
 {
-	int diem=0;
+	nguoichoi nc1;
+	string ten;
+	int diemnc=0;
 	for(int i=0;i<ds.size();i++)
-		xuat(ds[i],diem);
-		cout<<"\n diem cua ban la:"<<diem;
+		xuat(ds[i],diemnc);
+	cout<<"\n diem cua ban la:"<<diemnc;
+	cout<<"\n nhap ten luu:";
+	cin>>ten;
+	nc1.diem=diemnc;
+	cout<<"\t diem ban la:";
+	nc.push_back(nc1);
+	xuatngchoi();
 }
 int main()
 {
 	
 	chonde();
-	
+//	dsngchoi();
 }
