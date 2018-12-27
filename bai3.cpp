@@ -4,6 +4,7 @@
 #include<stdlib.h>
 #include<iostream>
 using namespace std;
+//khai bao cau truc cau hoi
 struct cauhoidapan{
 	string cauhoi;
 	string A;
@@ -12,13 +13,15 @@ struct cauhoidapan{
 	string DA;
 	
 };
+//khai bao vector
 vector<cauhoidapan> ds;
+//khai bao ham 
 void chonde();
 bool kiemtra(string A,string B);
 void xuat(cauhoidapan ds);
 void docde();
 void xuat(cauhoidapan ds);
-
+//doc file chon de
 void chonde()
 {
 	ifstream f("de1.txt");
@@ -43,6 +46,7 @@ void chonde()
 	
 
 }
+//ham kiem tra string
 bool kiemtra(string A,string B)
 {
 	if(A.compare(B)==0)
@@ -51,6 +55,7 @@ bool kiemtra(string A,string B)
 			return false;
 		
 }
+
 void xuat(cauhoidapan ds,int &diem)
 {
 	
@@ -67,6 +72,7 @@ void xuat(cauhoidapan ds,int &diem)
 	
 	
 }
+
 void docde()
 {
 	int diem=0;
