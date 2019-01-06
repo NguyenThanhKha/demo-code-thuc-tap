@@ -19,7 +19,10 @@ vector<Contact> db;
 void docfile();
 void ghifile();
 void themmoi(Contact c);
-void inContact();
+void inContact(Contact c);
+void chinhsuasdt(char sdt[]);
+void xoa(char xoa[]);
+void capnhat(Contact c);
 //doc file .dat
 void docfile()
 {
@@ -53,17 +56,34 @@ void inContact()
 	for(int i= 0;i<db.size();i++)
 	{
 		cout<<"ten:"<<db[i].ten;
+		cout<<"so dien thoai:"<<db[i].sdt;
+		cout<<"dia chi email:"<<db[i].email;
+		cout<<"dia chi :"<<db[i].diachi;
+		cout<<"gioi tinh:"<<db[i].gioitinh;
 	}
 }
 void lietke()
 {
+	for(int i=0 ; i <db.size() ;i++){
+		cout<<"ten la: "<<db[i].ten<<endl;
+		cout<<"sdt la: "<<db[i].sdt<<endl;
+		cout<<"email la: "<<db[i].email<<endl;
+		cout<<"dia chi la: "<<db[i].diachi<<endl;	
+		cout<<"gioi tinh la: "<<db[i].gioitinh<<endl;
+	}
+
 	
 }
 // them moi 1 Contact
-void themmoi(Contact c )
+void themmoi()
 {
+	Contact c;
 	db.push_back(c);
 	ghifile();
+	FILE*f=fopen("db.dat","wb");
+	for(int i = 0 ; i < db.size() ; i++)
+		fwrite(&db[i],sizeof(db),1,f);	
+		fclose(f);
 }
 void chinhsuasdt(char sdt[])
 {
@@ -86,7 +106,7 @@ void xoa(char xoa[])
 			db.erase(db.begin());
 	}
 }
-void capnhat(Contact c)
+void capnhat()
 {
 	themmoi();
 	lietke();
